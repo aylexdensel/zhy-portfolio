@@ -1,0 +1,181 @@
+/* Glassmorphism Flagship Card */
+.featuredCard {
+  background: linear-gradient(
+    135deg, 
+    rgba(139, 92, 246, 0.10) 0%, 
+    rgba(30, 58, 138, 0.08) 100%
+  );
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 
+    0 10px 30px rgba(0, 0, 0, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.25);
+  position: relative;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-32);
+  transition: all var(--transition-normal);
+}
+
+.featuredCard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+}
+
+.featuredCard::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 1px;
+  height: 100%;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.4), transparent, rgba(255, 255, 255, 0.15));
+}
+
+.featuredCard:hover {
+  border-color: rgba(255, 255, 255, 0.35);
+  background: linear-gradient(
+    135deg, 
+    rgba(139, 92, 246, 0.16) 0%, 
+    rgba(30, 58, 138, 0.12) 100%
+  );
+}
+
+@media (min-width: 992px) {
+  .featuredCard {
+    grid-template-columns: 1.15fr 0.85fr;
+    align-items: stretch;
+  }
+}
+
+.mediaArea {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  background: rgba(255, 255, 255, 0.05);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 1px solid var(--border);
+  padding: var(--space-32);
+}
+
+@media (min-width: 992px) {
+  .mediaArea {
+    height: 100%;
+    aspect-ratio: auto;
+    border-bottom: none;
+    border-left: 1px solid var(--border);
+  }
+}
+
+.placeholderCover {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-12);
+  text-align: center;
+}
+
+.placeholderIcon {
+  font-size: 3.5rem;
+  color: #ffffff;
+}
+
+.mockupTitle {
+  color: var(--text-primary);
+  font-size: 0.95rem;
+}
+
+.mockupSubtitle {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+}
+
+.infoArea {
+  padding: var(--space-32) var(--space-32) var(--space-40) var(--space-32);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-24);
+}
+
+@media (min-width: 768px) {
+  .infoArea {
+    padding: var(--space-40) var(--space-40) var(--space-48) var(--space-40);
+  }
+}
+
+.badgeHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-12);
+  flex-wrap: wrap;
+}
+
+.flagshipBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-8);
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #ffffff;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.titleBlock {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+}
+
+.title {
+  font-size: clamp(1.8rem, 3.5vw, 2.4rem);
+  color: var(--text-primary);
+  font-weight: 800;
+  line-height: 1.15;
+}
+
+.description {
+  font-size: 1.05rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.metaSection {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+}
+
+.groupLabel {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.tagsWrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-10);
+  align-items: center;
+}
+
+.actionsGroup {
+  display: flex;
+  align-items: center;
+  gap: var(--space-16);
+  margin-top: var(--space-20);
+  margin-bottom: var(--space-12);
+}

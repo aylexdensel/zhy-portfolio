@@ -1,0 +1,10 @@
+.projectsSection {
+  padding: var(--space-96) 0;
+  border-top: 1px solid var(--border);
+}
+
+.projectsContainer {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-32);
+}

@@ -1,0 +1,289 @@
+.keyboardSectionWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-32);
+  width: 100%;
+}
+
+/* Popout Skill Description Card with Fixed Height to Prevent Layout Shake */
+.popoutCard {
+  width: 100%;
+  max-width: 580px;
+  height: 105px; /* Fixed height eliminates layout shifting */
+  background: linear-gradient(
+    135deg, 
+    rgba(139, 92, 246, 0.10) 0%, 
+    rgba(30, 58, 138, 0.08) 100%
+  );
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 0 10px 30px var(--accent-soft);
+  position: relative;
+  overflow: hidden;
+  padding: var(--space-20) var(--space-24);
+  display: flex;
+  align-items: center;
+  gap: var(--space-16);
+  transition: all var(--transition-normal);
+}
+
+.popoutCard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.4),
+    transparent
+  );
+}
+
+.popoutCard::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 1px;
+  height: 100%;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.4),
+    transparent,
+    rgba(255, 255, 255, 0.15)
+  );
+}
+
+.popoutIconWrapper {
+  width: 52px;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--surface-elevated);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border);
+  padding: 8px;
+  flex-shrink: 0;
+}
+
+.popoutContent {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  overflow: hidden;
+}
+
+.popoutHeader {
+  display: flex;
+  align-items: center;
+  gap: var(--space-12);
+}
+
+.popoutName {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.popoutBadge {
+  font-size: 0.75rem;
+  color: var(--text-primary);
+  background-color: var(--accent-soft);
+  padding: 2px 10px;
+  border-radius: var(--radius-full);
+  border: 1px solid var(--border-active);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.popoutTagline {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  display: -webkit-box;
+  line-clamp: 2;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.hintText {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+}
+
+/* 3D Isometric Viewport Container */
+.perspectiveViewport {
+  perspective: 1200px;
+  width: 100%;
+  max-width: 680px;
+  padding: var(--space-32) 0;
+  display: flex;
+  justify-content: center;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: geometricPrecision;
+}
+
+/* 3D Floating Keyboard Base Plate */
+.keyboardPlate {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-16);
+  padding: var(--space-24);
+  background: linear-gradient(145deg, var(--surface-elevated) 0%, var(--surface) 100%);
+  border: 1px solid var(--border-active);
+  border-radius: var(--radius-xl);
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+  will-change: transform;
+  transform: rotateX(38deg) rotateZ(-18deg) rotateY(3deg);
+  box-shadow: 
+    -12px 14px 28px rgba(0, 0, 0, 0.25),
+    0 20px 40px var(--accent-soft);
+  transition: transform 600ms cubic-bezier(0.2, 0.8, 0.2, 1);
+  animation: floatBoard 5s ease-in-out infinite alternate;
+  width: 100%;
+}
+
+.perspectiveViewport:hover .keyboardPlate {
+  animation-play-state: paused;
+  transform: rotateX(32deg) rotateZ(-12deg) rotateY(2deg) scale(1.02);
+}
+
+@keyframes floatBoard {
+  0% { 
+    transform: rotateX(38deg) rotateZ(-18deg) rotateY(3deg) translateY(0px); 
+  }
+  50% { 
+    transform: rotateX(40deg) rotateZ(-15deg) rotateY(5deg) translateY(-28px); 
+  }
+  100% { 
+    transform: rotateX(36deg) rotateZ(-21deg) rotateY(1deg) translateY(14px); 
+  }
+}
+
+.keycap {
+  position: relative;
+  min-height: 90px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  user-select: none;
+  padding: 0;
+  transform-style: preserve-3d;
+}
+
+/* Resting State: Keycap face sits elevated at translateZ(12px) */
+.keycapFace {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-8);
+  padding: var(--space-12) var(--space-8);
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  transform-style: preserve-3d;
+  transform: translate3d(0, 0, 12px);
+  backface-visibility: hidden;
+  image-rendering: -webkit-optimize-contrast;
+  box-shadow: 
+    0 10px 0 var(--border),
+    0 14px 22px rgba(0, 0, 0, 0.2);
+  transition: transform 150ms cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 150ms cubic-bezier(0.2, 0.8, 0.2, 1), border-color 150ms ease;
+}
+
+/* Pressed State: Keycap depresses ONLY when hovered or pressed by physical key */
+.keycapPressed .keycapFace {
+  transform: translate3d(0, 5px, 4px) !important;
+  box-shadow: 
+    0 3px 0 var(--accent),
+    0 6px 14px var(--accent-soft);
+  border-color: var(--accent);
+  background-color: var(--surface-elevated);
+}
+
+.iconContainer {
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: translate3d(0, 0, 2px);
+  transition: transform var(--transition-fast);
+}
+
+.svgLogo {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.25));
+  image-rendering: -webkit-optimize-contrast;
+}
+
+.keycapPressed .iconContainer {
+  transform: translate3d(0, 0, 2px) scale(1.12);
+}
+
+.keyName {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  text-align: center;
+  letter-spacing: 0.01em;
+  line-height: 1.2;
+}
+
+.keyShortcut {
+  position: absolute;
+  top: 6px;
+  right: 8px;
+  font-size: 0.65rem;
+  font-weight: 700;
+  opacity: 0.6;
+  font-family: var(--font-mono);
+  color: var(--text-muted);
+}
+
+@media (max-width: 768px) {
+  .perspectiveViewport {
+    perspective: none;
+    padding: var(--space-16) 0;
+  }
+
+  .keyboardPlate {
+    transform: none !important;
+    animation: none !important;
+    grid-template-columns: repeat(2, 1fr);
+    width: 100%;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  }
+
+  .keycap {
+    min-height: 85px;
+  }
+
+  .keycapFace {
+    box-shadow: 0 4px 0 var(--border);
+    transform: none !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .keyboardPlate {
+    animation: none;
+  }
+}

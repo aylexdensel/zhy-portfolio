@@ -1,0 +1,140 @@
+.showcaseSection {
+  padding: var(--space-96) 0;
+  border-top: 1px solid var(--border);
+  background-color: transparent;
+}
+
+.showcaseContainer {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-48);
+}
+
+.catalogHeader {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+  margin-bottom: var(--space-24);
+}
+
+.catalogTag {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-8);
+  padding: 4px 14px;
+  border-radius: var(--radius-full);
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  color: #a855f7;
+  font-size: 0.8rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  width: fit-content;
+}
+
+/* 4 Long Horizontal Row Cards */
+.catalogGrid {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-48);
+}
+
+/* Glassmorphism Horizontal Row Card (Hero Glass Style) */
+.horizontalCard {
+  background: linear-gradient(
+    135deg, 
+    rgba(139, 92, 246, 0.10) 0%, 
+    rgba(30, 58, 138, 0.08) 100%
+  );
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+  position: relative;
+  overflow: hidden;
+  padding: var(--space-32);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-24);
+  transition: all var(--transition-fast);
+}
+
+.horizontalCard:hover {
+  border-color: rgba(255, 255, 255, 0.22);
+  background: linear-gradient(
+    135deg, 
+    rgba(139, 92, 246, 0.16) 0%, 
+    rgba(30, 58, 138, 0.12) 100%
+  );
+  box-shadow: 
+    0 14px 40px rgba(0, 0, 0, 0.35),
+    0 0 25px rgba(139, 92, 246, 0.15);
+}
+
+.rowMeta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  padding-bottom: var(--space-16);
+}
+
+.rowTitle {
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: #ffffff;
+}
+
+.rowSubtitle {
+  font-size: 0.92rem;
+  color: var(--text-secondary);
+  margin-top: 4px;
+}
+
+.arrowIndicator {
+  font-size: 1.2rem;
+  color: var(--text-muted);
+}
+
+/* 3 Opaque #080c14 Vertical Cards for Rows 2, 3, 4 */
+.placeholderRowContent {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-24);
+}
+
+@media (max-width: 1024px) {
+  .placeholderRowContent {
+    grid-template-columns: 1fr;
+  }
+}
+
+.placeholderCard {
+  background-color: #080c14;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: var(--space-32);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-12);
+  min-height: 220px;
+  text-align: center;
+  color: var(--text-muted);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+  transition: border-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.placeholderCard:hover {
+  border-color: rgba(255, 255, 255, 0.25);
+  transform: translateY(-4px);
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.6);
+}
+
+.placeholderIcon {
+  font-size: 2.5rem;
+  color: #ffffff;
+}

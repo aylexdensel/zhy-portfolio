@@ -1,0 +1,9 @@
+.skillsSection {
+  padding: var(--space-96) 0;
+  border-top: 1px solid var(--border);
+  background-color: var(--bg-secondary);
+}
+
+.keyboardContainer {
+  margin-top: var(--space-32);
+}

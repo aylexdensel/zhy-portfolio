@@ -1,0 +1,137 @@
+.ambientWrapper {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  overflow: hidden;
+  min-height: 100vh;
+  /* NO background-color here - layers blend against body (#100e0b) */
+}
+
+/* Subtle Perspective Grid Overlay */
+.gridPattern {
+  position: absolute;
+  inset: 0;
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.08) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.08) 1px, transparent 1px);
+  background-size: 60px 60px;
+  opacity: 0.35;
+  mask-image: radial-gradient(circle at 50% 40%, black 20%, transparent 85%);
+  -webkit-mask-image: radial-gradient(circle at 50% 40%, black 20%, transparent 85%);
+}
+
+/* --- 4 Corner Glowing Light Orbs --- */
+
+/* Orb 1: Top-Left Corner (Royal Blue Aura - 9s cycle) */
+.orbTopLeft {
+  position: absolute;
+   top: -2%;   /* Increase number to move DOWNWARD into the screen */
+  left: -15%; 
+  width: 1500px;
+  height: 700px;
+  border-radius: var(--radius-full);
+  background: radial-gradient(circle, rgba(124, 58, 237, 0.68) 0%, rgba(91, 33, 182, 0.14) 50%, transparent 74%);
+  mix-blend-mode: screen;
+  filter: blur(100px);
+  transform: translateZ(0);
+  will-change: transform;
+  pointer-events: none;
+  animation: floatCorner1 9s ease-in-out infinite alternate;
+}
+
+/* Orb 2: Top-Right Corner (Deep Purple Aura - 11s cycle) */
+.orbTopRight {
+  position: absolute;
+  top: -3% ;
+  right: -10%;
+  width: 1300px;
+  height: 700px;
+  border-radius: var(--radius-full);
+  background: radial-gradient(circle, rgba(37, 99, 235, 0.70) 0%, rgba(30, 64, 175, 0.16) 48%, transparent 72%);
+  mix-blend-mode: screen;
+  filter: blur(110px);
+  transform: translateZ(0);
+  will-change: transform;
+  pointer-events: none;
+  animation: floatCorner2 11s ease-in-out infinite alternate;
+}
+
+/* Orb 3: Bottom-Left Corner (Electric Sky Blue Aura - 8s cycle) */
+.orbBottomLeft {
+  position: absolute;
+  bottom: -15%;
+  left: -5%;
+  width: 650px;
+  height: 650px;
+  border-radius: var(--radius-full);
+  background: radial-gradient(circle, rgba(96, 165, 250, 0.50) 0%, rgba(37, 99, 235, 0.12) 50%, transparent 70%);
+  mix-blend-mode: screen;
+  filter: blur(95px);
+  transform: translateZ(0);
+  will-change: transform;
+  pointer-events: none;
+  animation: floatCorner3 8s ease-in-out infinite alternate;
+}
+
+/* Orb 4: Bottom-Right Corner (Deep Violet Aura - 10s cycle) */
+.orbBottomRight {
+  position: absolute;
+  bottom: -20%;
+  right: -15%;
+  width: 720px;
+  height: 720px;
+  border-radius: var(--radius-full);
+  background: radial-gradient(circle, rgba(139, 92, 246, 0.60) 0%, rgba(30, 58, 138, 0.20) 50%, transparent 72%);
+  mix-blend-mode: screen;
+  filter: blur(115px);
+  transform: translateZ(0);
+  will-change: transform;
+  pointer-events: none;
+  animation: floatCorner4 10s ease-in-out infinite alternate;
+}
+
+/* Light Mode Blend Mode Adaptation */
+[data-theme="light"] .orbTopLeft,
+[data-theme="light"] .orbTopRight,
+[data-theme="light"] .orbBottomLeft,
+[data-theme="light"] .orbBottomRight {
+  mix-blend-mode: multiply;
+}
+
+/* Faster, Dynamic Motion Keyframes */
+@keyframes floatCorner1 {
+  0% { transform: translate3d(0, 0, 0) scale(1); }
+  50% { transform: translate3d(140px, 100px, 0) scale(1.18); }
+  100% { transform: translate3d(-40px, 120px, 0) scale(0.9); }
+}
+
+@keyframes floatCorner2 {
+  0% { transform: translate3d(0, 0, 0) scale(1); }
+  50% { transform: translate3d(-150px, 90px, 0) scale(1.22); }
+  100% { transform: translate3d(30px, 130px, 0) scale(0.92); }
+}
+
+@keyframes floatCorner3 {
+  0% { transform: translate3d(0, 0, 0) scale(0.9); }
+  50% { transform: translate3d(130px, -110px, 0) scale(1.25); }
+  100% { transform: translate3d(-50px, -70px, 0) scale(0.95); }
+}
+
+@keyframes floatCorner4 {
+  0% { transform: translate3d(0, 0, 0) scale(1); }
+  50% { transform: translate3d(-140px, -120px, 0) scale(1.15); }
+  100% { transform: translate3d(60px, -80px, 0) scale(0.88); }
+}
+
+@media (max-width: 768px) {
+  .orbTopLeft, .orbTopRight, .orbBottomLeft, .orbBottomRight {
+    filter: blur(75px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .orbTopLeft, .orbTopRight, .orbBottomLeft, .orbBottomRight {
+    animation: none;
+  }
+}

@@ -1,0 +1,336 @@
+.contactSection {
+  padding: var(--space-96) 0;
+  border-top: 1px solid var(--border);
+}
+
+/* 3-Column Grid Layout for Desktop */
+.contactGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-32);
+  align-items: center;
+}
+
+@media (min-width: 1024px) {
+  .contactGrid {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+.leftCol {
+  display: flex;
+  justify-content: center;
+}
+
+.middleCol {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: center;
+}
+
+.rightCol {
+  display: flex;
+  justify-content: center;
+}
+
+/* Stacked 2 Education Cards Container */
+.educationStack {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-20);
+  width: 100%;
+}
+
+/* Glassmorphism Education Cards matching soft purple glass theme */
+.degreeCard,
+.selfLearningCard {
+  background: linear-gradient(
+    135deg, 
+    rgba(139, 92, 246, 0.10) 0%, 
+    rgba(30, 58, 138, 0.08) 100%
+  );
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  padding: var(--space-24);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-12);
+  transition: all var(--transition-fast);
+}
+
+.degreeCard:hover,
+.selfLearningCard:hover {
+  border-color: rgba(255, 255, 255, 0.22);
+  background: linear-gradient(
+    135deg, 
+    rgba(139, 92, 246, 0.16) 0%, 
+    rgba(30, 58, 138, 0.12) 100%
+  );
+  transform: translateY(-4px);
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.3);
+}
+
+.degreeHeader {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.degreeTitle {
+  font-size: 1.2rem;
+  color: var(--text-primary);
+  font-weight: 800;
+}
+
+.institution {
+  font-size: 1rem;
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.metaRow {
+  display: flex;
+  align-items: center;
+  gap: var(--space-16);
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  flex-wrap: wrap;
+}
+
+.metaItem {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.neonPinkIconEdu {
+  width: 18px;
+  height: 18px;
+  color: #ff2a85;
+  filter: drop-shadow(0 0 6px rgba(255, 42, 133, 0.6));
+  flex-shrink: 0;
+}
+
+.cardTitle {
+  font-size: 1.1rem;
+  color: var(--text-primary);
+  font-weight: 700;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: var(--space-8);
+}
+
+.eduDescription {
+  font-size: 0.92rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+.socialSideCol {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-24);
+  text-align: center;
+  height: 100%;
+}
+
+/* --- Scaled 4-Quadrant Social Grid --- */
+.main {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2em;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+.up {
+  display: flex;
+  flex-direction: row;
+  gap: 1.2em;
+}
+
+.down {
+  display: flex;
+  flex-direction: row;
+  gap: 1.2em;
+}
+
+.svgIcon {
+  width: 52px;
+  height: 52px;
+  object-fit: contain;
+  margin: 0 !important;
+  transition: fill 0.2s ease-in-out;
+}
+
+/* Card 1: LinkedIn (Top-Left) */
+.card1 {
+  width: 160px;
+  height: 160px;
+  outline: none;
+  background: var(--surface);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 160px 12px 12px 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.card1 .svgIcon {
+  fill: #0077b5;
+  transform: translate(10px, 10px);
+}
+
+.card1:hover {
+  transform: scale(1.08);
+  background-color: #0077b5;
+  border-color: #0077b5;
+  box-shadow: 0 10px 25px rgba(0, 119, 181, 0.4);
+}
+
+.card1:hover .svgIcon {
+  fill: white;
+}
+
+/* Card 2: GitHub (Top-Right) */
+.card2 {
+  width: 160px;
+  height: 160px;
+  outline: none;
+  background: var(--surface);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 12px 160px 12px 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.card2 .svgIcon {
+  fill: var(--text-primary);
+  transform: translate(-10px, 10px);
+}
+
+.card2:hover {
+  transform: scale(1.08);
+  background-color: #111111;
+  border-color: #333;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+}
+
+.card2:hover .svgIcon {
+  fill: white;
+}
+
+/* Card 3: Facebook (Bottom-Left) */
+.card3 {
+  width: 160px;
+  height: 160px;
+  outline: none;
+  background: var(--surface);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 12px 12px 12px 160px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.card3 .svgIcon {
+  fill: #1877f2;
+  transform: translate(10px, -10px);
+}
+
+.card3:hover {
+  transform: scale(1.08);
+  background-color: #1877f2;
+  border-color: #1877f2;
+  box-shadow: 0 10px 25px rgba(24, 119, 242, 0.4);
+}
+
+.card3:hover .svgIcon {
+  fill: white;
+}
+
+/* Card 4: Gmail (Bottom-Right) */
+.card4 {
+  width: 160px;
+  height: 160px;
+  outline: none;
+  background: var(--surface);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 12px 12px 160px 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.card4 .svgIcon {
+  fill: #ea4335;
+  transform: translate(-10px, -10px);
+}
+
+.card4:hover {
+  transform: scale(1.08);
+  background-color: #ea4335;
+  border-color: #ea4335;
+  box-shadow: 0 10px 25px rgba(234, 67, 53, 0.4);
+}
+
+.card4:hover .svgIcon {
+  fill: white;
+}
+
+.locationBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-8);
+  padding: var(--space-8) var(--space-16);
+  border-radius: var(--radius-full);
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  width: fit-content;
+  margin-top: var(--space-16);
+}
+
+.neonPinkIconLocation {
+  width: 20px;
+  height: 20px;
+  color: #ff2a85;
+  filter: drop-shadow(0 0 6px rgba(255, 42, 133, 0.6));
+}
+
+@media (max-width: 500px) {
+  .card1, .card2, .card3, .card4 {
+    width: 120px;
+    height: 120px;
+  }
+  .svgIcon {
+    width: 40px;
+    height: 40px;
+  }
+}
