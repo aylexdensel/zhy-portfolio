@@ -13,7 +13,7 @@
 .catalogHeader {
   display: flex;
   flex-direction: column;
-  gap: var(--space-8);
+  gap: var(--space-12);
   margin-bottom: var(--space-24);
 }
 
@@ -33,14 +33,53 @@
   width: fit-content;
 }
 
-/* 4 Long Horizontal Row Cards */
+.headingWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-12);
+  margin-top: var(--space-8);
+}
+
+.numberTag {
+  font-family: var(--font-mono);
+  font-size: 0.875rem;
+  color: var(--accent);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.title {
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+}
+
+/* 2D Pixel Font Title Styling */
+.showcaseShuffleTitle {
+  font-family: 'Press Start 2P', monospace, sans-serif !important;
+  font-size: clamp(1rem, 2.2vw, 1.75rem) !important;
+  line-height: 1.6 !important;
+  color: #ffffff !important;
+  letter-spacing: 0.04em !important;
+  text-shadow: 0 0 12px rgba(255, 255, 255, 0.4);
+}
+
+.subtitle {
+  color: var(--text-secondary);
+  font-size: 1.1rem;
+  max-width: 75ch;
+  min-height: 56px;
+  line-height: 1.6;
+}
+
+/* 6 Long Horizontal Row Cards */
 .catalogGrid {
   display: flex;
   flex-direction: column;
   gap: var(--space-48);
 }
 
-/* Glassmorphism Horizontal Row Card (Hero Glass Style) */
+/* Glassmorphism Horizontal Row Card */
 .horizontalCard {
   background: linear-gradient(
     135deg, 
@@ -79,6 +118,8 @@
   justify-content: space-between;
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
   padding-bottom: var(--space-16);
+  z-index: 10;
+  position: relative;
 }
 
 .rowTitle {
@@ -98,43 +139,36 @@
   color: var(--text-muted);
 }
 
-/* 3 Opaque #080c14 Vertical Cards for Rows 2, 3, 4 */
-.placeholderRowContent {
+/* Edge-to-Edge Container for DriftWall inside Horizontal Card */
+.driftWallWrapper {
+  position: relative;
+  height: 560px;
+  width: calc(100% + var(--space-64));
+  margin-left: calc(-1 * var(--space-32));
+  margin-right: calc(-1 * var(--space-32));
+  margin-bottom: calc(-1 * var(--space-32));
+  overflow: hidden;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+
+/* 3-Column Grid for Showcase Interactive Cards & Forms */
+.cardsShowcaseGrid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: var(--space-24);
+  gap: var(--space-32);
+  align-items: center;
+  justify-items: center;
+  width: 100%;
 }
 
 @media (max-width: 1024px) {
-  .placeholderRowContent {
+  .cardsShowcaseGrid {
     grid-template-columns: 1fr;
+    gap: var(--space-32);
   }
-}
 
-.placeholderCard {
-  background-color: #080c14;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 20px;
-  padding: var(--space-32);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: var(--space-12);
-  min-height: 220px;
-  text-align: center;
-  color: var(--text-muted);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
-  transition: border-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
-}
-
-.placeholderCard:hover {
-  border-color: rgba(255, 255, 255, 0.25);
-  transform: translateY(-4px);
-  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.6);
-}
-
-.placeholderIcon {
-  font-size: 2.5rem;
-  color: #ffffff;
+  .driftWallWrapper {
+    height: 440px;
+  }
 }

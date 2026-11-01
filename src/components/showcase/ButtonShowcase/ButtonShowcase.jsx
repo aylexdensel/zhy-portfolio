@@ -1,4 +1,5 @@
 import React from 'react';
+import { DottedGlowBackground } from '../../ui/DottedGlowBackground/DottedGlowBackground';
 import './ButtonShowcase.css';
 
 export function ButtonShowcase() {
@@ -6,6 +7,20 @@ export function ButtonShowcase() {
     <div className="button-showcase-grid">
       {/* Opaque #080c14 Vertical Card 1 */}
       <div className="button-card-column">
+        <DottedGlowBackground
+          opacity={1}
+          gap={12}
+          radius={1.6}
+          color="rgba(255, 255, 255, 0.15)"
+          darkColor="rgba(255, 255, 255, 0.15)"
+          glowColor="rgba(168, 85, 247, 0.85)"
+          darkGlowColor="rgba(168, 85, 247, 0.9)"
+          backgroundOpacity={0}
+          speedMin={0.3}
+          speedMax={1.6}
+          speedScale={1}
+        />
+
         <div className="button-card-header">
           <h4 className="button-card-title">Gradient & Motion Interactions</h4>
           <p className="button-card-subtext">Rotating gradients, expanding circles, and slide fills.</p>
@@ -36,6 +51,20 @@ export function ButtonShowcase() {
 
       {/* Opaque #080c14 Vertical Card 2 */}
       <div className="button-card-column">
+        <DottedGlowBackground
+          opacity={1}
+          gap={12}
+          radius={1.6}
+          color="rgba(255, 255, 255, 0.15)"
+          darkColor="rgba(255, 255, 255, 0.15)"
+          glowColor="rgba(0, 229, 255, 0.85)"
+          darkGlowColor="rgba(0, 229, 255, 0.9)"
+          backgroundOpacity={0}
+          speedMin={0.3}
+          speedMax={1.6}
+          speedScale={1}
+        />
+
         <div className="button-card-header">
           <h4 className="button-card-title">Reflections & Layered Animations</h4>
           <p className="button-card-subtext">Neon reflections, icon swaps, and stacked 3D shadows.</p>
@@ -70,6 +99,20 @@ export function ButtonShowcase() {
 
       {/* Opaque #080c14 Vertical Card 3 */}
       <div className="button-card-column">
+        <DottedGlowBackground
+          opacity={1}
+          gap={12}
+          radius={1.6}
+          color="rgba(255, 255, 255, 0.15)"
+          darkColor="rgba(255, 255, 255, 0.15)"
+          glowColor="rgba(255, 42, 133, 0.85)"
+          darkGlowColor="rgba(255, 42, 133, 0.9)"
+          backgroundOpacity={0}
+          speedMin={0.3}
+          speedMax={1.6}
+          speedScale={1}
+        />
+
         <div className="button-card-header">
           <h4 className="button-card-title">Origami & 3D Brutalist Pop</h4>
           <p className="button-card-subtext">3D depth reveals, origami corner folds, and brutalist social states.</p>

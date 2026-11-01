@@ -1,0 +1,174 @@
+.container {
+  width: 100%;
+  max-width: 340px;
+  height: 440px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+.cometCard {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  padding: 3px;
+  border-radius: var(--radius-xl);
+  background: #101216;
+  overflow: hidden;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
+}
+
+/* Sweeping Radiant Orbiting Comet Beam */
+.cometBeam {
+  position: absolute;
+  inset: -100%;
+  background: conic-gradient(
+    from 0deg,
+    transparent 0deg,
+    transparent 280deg,
+    rgba(255, 42, 133, 0.8) 320deg,
+    #00e5ff 360deg
+  );
+  animation: rotateBeam 4s linear infinite;
+  z-index: 1;
+}
+
+@keyframes rotateBeam {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.innerForm {
+  position: relative;
+  z-index: 2;
+  background-color: #080c14;
+  border-radius: 17px;
+  height: 100%;
+  padding: var(--space-24);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.pulseDot {
+  width: 8px;
+  height: 8px;
+  border-radius: var(--radius-full);
+  background-color: #00e5ff;
+  box-shadow: 0 0 10px #00e5ff;
+  margin-bottom: 2px;
+}
+
+.vaultBadge {
+  font-size: 0.72rem;
+  font-weight: 800;
+  color: #00e5ff;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.title {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: #ffffff;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-16);
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.label {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.input {
+  width: 100%;
+  padding: 10px 14px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: var(--radius-md);
+  color: #ffffff;
+  font-size: 0.9rem;
+  font-family: var(--font-mono);
+  outline: none;
+  letter-spacing: 0.1em;
+}
+
+.input:focus {
+  border-color: #ff2a85;
+}
+
+.verifyBtn {
+  width: 100%;
+  padding: 11px;
+  background: linear-gradient(135deg, #ff2a85 0%, #00e5ff 100%);
+  border: none;
+  border-radius: var(--radius-md);
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 0.9rem;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(255, 42, 133, 0.35);
+  transition: opacity 200ms ease;
+}
+
+.verifyBtn:disabled {
+  opacity: 0.6;
+  cursor: wait;
+}
+
+.quickAuthBlock {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+  text-align: center;
+}
+
+.dividerText {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.socialPillRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-8);
+}
+
+.socialPill {
+  padding: 8px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: var(--radius-md);
+  color: #ffffff;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 200ms ease;
+}
+
+.socialPill:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.3);
+}

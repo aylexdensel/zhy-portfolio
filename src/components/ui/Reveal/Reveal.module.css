@@ -1,8 +1,8 @@
 .revealContainer {
   opacity: 0;
   will-change: transform, opacity;
-  /* Ultra-slow 1600ms cinematic entrance transition */
-  transition: opacity 1600ms cubic-bezier(0.16, 1, 0.3, 1), transform 1600ms cubic-bezier(0.16, 1, 0.3, 1);
+  /* Ultra-smooth 1400ms cinematic entrance transition */
+  transition: opacity 1400ms cubic-bezier(0.16, 1, 0.3, 1), transform 1400ms cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 /* Direction: Left (Slide in from left) */
@@ -10,9 +10,19 @@
   transform: translate3d(-60px, 0, 0);
 }
 
+/* Direction: Right (Slide in from right) */
+.right {
+  transform: translate3d(60px, 0, 0);
+}
+
 /* Direction: Up (Slide up from bottom) */
 .up {
   transform: translate3d(0, 50px, 0);
+}
+
+/* Direction: Down (Slide down from top) */
+.down {
+  transform: translate3d(0, -50px, 0);
 }
 
 /* Direction: Fade (Pure fade in) */

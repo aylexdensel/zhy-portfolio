@@ -1,0 +1,106 @@
+.container {
+  perspective: 1000px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cardBody {
+  position: relative;
+  width: 100%;
+  max-width: 360px;
+  min-height: 420px;
+  background-color: #080c14;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: var(--radius-xl);
+  padding: var(--space-24);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transform-style: preserve-3d;
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+}
+
+.cardBody:hover {
+  border-color: rgba(255, 255, 255, 0.3);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7), 0 0 25px rgba(168, 85, 247, 0.2);
+}
+
+.title {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: #ffffff;
+  transition: transform 300ms ease;
+  will-change: transform;
+}
+
+.subtext {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  margin-top: 4px;
+  transition: transform 300ms ease;
+  will-change: transform;
+}
+
+.imageWrapper {
+  position: relative;
+  width: 100%;
+  height: 190px;
+  margin: var(--space-16) 0;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6);
+  transition: transform 350ms cubic-bezier(0.2, 0.8, 0.2, 1);
+  will-change: transform;
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.actionsBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: var(--space-12);
+}
+
+.textBtn {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #ffffff;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: transform 300ms ease, color 200ms ease;
+  will-change: transform;
+}
+
+.textBtn:hover {
+  color: #00e5ff;
+}
+
+.ctaBtn {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: #080c14;
+  background-color: #ffffff;
+  border: 1px solid #ffffff;
+  border-radius: var(--radius-md);
+  padding: 6px 16px;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.25);
+  transition: transform 300ms ease, background-color 200ms ease;
+  will-change: transform;
+}
+
+.ctaBtn:hover {
+  background-color: #e2e8f0;
+}

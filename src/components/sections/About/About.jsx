@@ -1,12 +1,8 @@
 import React from 'react';
-import { SectionHeading } from '../../ui/SectionHeading/SectionHeading';
 import { Reveal } from '../../ui/Reveal/Reveal';
+import { Shuffle } from '../../ui/Shuffle/Shuffle';
+import { TextType } from '../../ui/TextType/TextType';
 import styles from './About.module.css';
-
-import targetIcon from '../../../assets/icons/target.svg';
-import architectureIcon from '../../../assets/icons/architecture.svg';
-import lightningIcon from '../../../assets/icons/lightning.svg';
-import growthIcon from '../../../assets/icons/growth.svg';
 
 const WHY_ICONS = {
   target: (
@@ -71,23 +67,64 @@ export function About() {
   return (
     <section id="about" className={styles.aboutSection} aria-label="About ZHY">
       <div className="container">
+        
+        {/* Section Heading Split into 2 Stacked Lines */}
         <Reveal direction="left" delay={100}>
-          <SectionHeading
-            number="01 / ABOUT"
-            title="Bridging Interface Design & Full-Stack Code"
-          />
+          <div className={styles.headingWrapper}>
+            <span className={styles.numberTag}>01 / ABOUT</span>
+            <h2 className={styles.title}>
+              <div className={styles.titleLine}>
+                <Shuffle
+                  text="Bridging Interface Design"
+                  className={styles.aboutShuffleTitle}
+                  shuffleDirection="right"
+                  duration={0.35}
+                  stagger={0.02}
+                  animationMode="evenodd"
+                  loop={false}
+                  triggerOnHover={true}
+                  textAlign="left"
+                />
+              </div>
+              <div className={styles.titleLine}>
+                <Shuffle
+                  text="& Full-Stack Code"
+                  className={styles.aboutShuffleTitle}
+                  shuffleDirection="right"
+                  duration={0.35}
+                  stagger={0.02}
+                  animationMode="evenodd"
+                  loop={false}
+                  triggerOnHover={true}
+                  textAlign="left"
+                />
+              </div>
+            </h2>
+          </div>
         </Reveal>
 
         <div className={styles.aboutGrid}>
-          {/* Left Column: Narrative & Hero-Matched Buttons */}
+          {/* Left Column: Narrative with Typewriter Engine & Action Buttons */}
           <Reveal direction="left" delay={200}>
             <div className={styles.narrativeCol}>
-              <p className={styles.narrativeParagraph}>
-                I am a Manila-based recent graduate and passionate Web, Frontend, and Full-Stack Developer pursuing a career with the meticulous eye of a UI/UX designer. Thriving at the intersection of logic and creativity, I treat design and engineering as two halves of a single process—designing with architecture in mind and coding with user experience at the forefront.
-              </p>
-              <p className={styles.narrativeParagraph}>
-                Whether bridging the gap between intuitive interfaces and backend systems, transforming complex requirements into clean digital solutions, or independently building modern full-stack applications, my ultimate goal is always to create accessible, performant software that feels completely effortless.
-              </p>
+              <TextType
+                text="I am a Manila-based recent graduate and passionate Web, Frontend, and Full-Stack Developer pursuing a career with the meticulous eye of a UI/UX designer. Thriving at the intersection of logic and creativity, I treat design and engineering as two halves of a single process—designing with architecture in mind and coding with user experience at the forefront."
+                typingSpeed={14}
+                initialDelay={300}
+                loop={false}
+                showCursor={false}
+                className={styles.narrativeParagraph}
+              />
+
+              <TextType
+                text="Whether bridging the gap between intuitive interfaces and backend systems, transforming complex requirements into clean digital solutions, or independently building modern full-stack applications, my ultimate goal is always to create accessible, performant software that feels completely effortless."
+                typingSpeed={14}
+                initialDelay={1400}
+                loop={false}
+                showCursor={true}
+                cursorCharacter="▍"
+                className={styles.narrativeParagraph}
+              />
 
               {/* Exact Hero-Style Buttons */}
               <div className={styles.aboutButtonsGroup}>
@@ -102,7 +139,7 @@ export function About() {
           </Reveal>
 
           {/* Right Column: 3D Orbiting Photo Carousel */}
-          <Reveal direction="up" delay={300}>
+          <Reveal direction="right" delay={300}>
             <div className={styles.carouselWrapper}>
               <div className={styles.inner} style={{ '--quantity': 10 }}>
                 {ROTATING_CARDS.map((card) => (
@@ -128,16 +165,28 @@ export function About() {
 
         {/* Why Work With Me Sub-Section */}
         <div className={styles.whySection}>
-          <Reveal direction="left" delay={100}>
+          <Reveal direction="right" delay={100}>
             <div className={styles.whyHeader}>
               <span className={styles.whySubtag}>Value Proposition</span>
-              <h3 className={styles.whyTitle}>Why Work With Me?</h3>
+              <h3 className={styles.whyTitle}>
+                <Shuffle
+                  text="Why Work With Me?"
+                  className={styles.whyShuffleTitle}
+                  shuffleDirection="right"
+                  duration={0.35}
+                  stagger={0.02}
+                  animationMode="evenodd"
+                  loop={false}
+                  triggerOnHover={true}
+                  textAlign="left"
+                />
+              </h3>
             </div>
           </Reveal>
 
           <div className={styles.whyGrid}>
             {WHY_WORK_WITH_ME.map((card, index) => (
-              <Reveal key={index} direction="left" delay={150 + index * 100}>
+              <Reveal key={index} direction="up" delay={150 + index * 100}>
                 <div className={styles.whyCard}>
                   <div className={styles.whyIcon}>
                     {card.icon}
@@ -153,3 +202,5 @@ export function About() {
     </section>
   );
 }
+
+export default About;

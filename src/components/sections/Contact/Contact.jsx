@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import { SectionHeading } from '../../ui/SectionHeading/SectionHeading';
+import { Reveal } from '../../ui/Reveal/Reveal';
+import { Shuffle } from '../../ui/Shuffle/Shuffle';
+import { TextType } from '../../ui/TextType/TextType';
 import { ContactForm } from './ContactForm';
 import { ContactModal } from './ContactModal/ContactModal';
-import { Reveal } from '../../ui/Reveal/Reveal';
-import { Tag } from '../../ui/Tag/Tag';
 import styles from './Contact.module.css';
 
 export function Contact() {
@@ -22,12 +22,36 @@ export function Contact() {
   return (
     <section id="contact" className={styles.contactSection} aria-label="Contact ZHY">
       <div className="container">
+        
+        {/* Section Header with Pixel Shuffle Title & Typewriter Subtitle */}
         <Reveal direction="left" delay={100}>
-          <SectionHeading
-            number="05 / CONTACT"
-            title="Let's Build Something Together"
-            subtitle="Open for entry-level and junior development roles across Frontend, Web, Full-Stack, and UI/UX engineering."
-          />
+          <div className={styles.headingWrapper}>
+            <span className={styles.numberTag}>05 / CONTACT</span>
+
+            <h2 className={styles.title}>
+              <Shuffle
+                text="Let's Build Something Together"
+                className={styles.contactShuffleTitle}
+                shuffleDirection="right"
+                duration={0.35}
+                stagger={0.02}
+                animationMode="evenodd"
+                loop={false}
+                triggerOnHover={true}
+                textAlign="left"
+              />
+            </h2>
+
+            <TextType
+              text="Open for entry-level and junior development roles across Frontend, Web, Full-Stack, and UI/UX engineering."
+              typingSpeed={16}
+              initialDelay={300}
+              loop={false}
+              showCursor={true}
+              cursorCharacter="▍"
+              className={styles.subtitle}
+            />
+          </div>
         </Reveal>
 
         {/* 3-Column Layout: Left (Form) | Middle (Education Cards) | Right (4-Quadrant Grid) */}
@@ -40,19 +64,16 @@ export function Contact() {
             </Reveal>
           </div>
 
-          {/* MIDDLE COLUMN: 2 Stacked Education Cards with Neon Pink SVGs */}
+          {/* MIDDLE COLUMN: 2 Stacked Education Cards */}
           <div className={styles.middleCol}>
             <Reveal direction="up" delay={250}>
               <div className={styles.educationStack}>
-                {/* Degree Card */}
                 <div className={styles.degreeCard}>
                   <div className={styles.degreeHeader}>
-                    
                     <h3 className={styles.degreeTitle}>Bachelor's Degree in IT</h3>
                     <p className={styles.institution}>UST Angelicum College</p>
                   </div>
 
-                  {/* Neon Pink Graduation & Pin SVG Meta Row */}
                   <div className={styles.metaRow}>
                     <div className={styles.metaItem}>
                       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className={styles.neonPinkIconEdu}>
@@ -62,7 +83,7 @@ export function Contact() {
                     </div>
 
                     <div className={styles.metaItem}>
-                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className={styles.neonPinkIconEdu}>
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className={styles.neonPinkIconLocation}>
                         <path strokeLinecap="round" strokeLinejoin="round" d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
                         <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z" />
                       </svg>
@@ -75,7 +96,6 @@ export function Contact() {
                   </p>
                 </div>
 
-                {/* Self-Learning Card */}
                 <div className={styles.selfLearningCard}>
                   <h3 className={styles.cardTitle}>Self-Directed Growth</h3>
                   <p className={styles.eduDescription}>
@@ -88,7 +108,7 @@ export function Contact() {
 
           {/* RIGHT COLUMN: Uiverse.io 4-Quadrant Social Grid */}
           <div className={styles.rightCol}>
-            <Reveal direction="left" delay={300}>
+            <Reveal direction="right" delay={300}>
               <div className={styles.socialSideCol}>
                 <div className={styles.main}>
                   <div className={styles.up}>
@@ -159,12 +179,12 @@ export function Contact() {
               </div>
             </Reveal>
           </div>
-
         </div>
       </div>
 
-      {/* Interactive Contact Modal */}
       <ContactModal data={activeModal} onClose={() => setActiveModal(null)} />
     </section>
   );
 }
+
+export default Contact;

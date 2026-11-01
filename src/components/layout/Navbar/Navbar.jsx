@@ -24,28 +24,37 @@ export function Navbar() {
   }, [location]);
 
   const handleNavClick = (e, link) => {
+    e.preventDefault();
     setIsMobileMenuOpen(false);
 
     if (link.id === 'home') {
-      e.preventDefault();
       if (location.pathname === '/') {
         smoothScrollTo(0, SCROLL_DURATION);
       } else {
         navigate('/');
-        setTimeout(() => smoothScrollTo(0, SCROLL_DURATION), 100);
+        setTimeout(() => smoothScrollTo(0, SCROLL_DURATION), 50);
       }
       return;
     }
 
-    if (link.type === 'section' && location.pathname === '/') {
-      e.preventDefault();
-      const targetElement = document.getElementById(link.id);
-      if (targetElement) {
-        const headerOffset = 80;
-        const elementPosition = targetElement.getBoundingClientRect().top;
-        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-        
-        smoothScrollTo(offsetPosition, SCROLL_DURATION);
+    if (link.type === 'section') {
+      if (location.pathname !== '/') {
+        navigate('/');
+        setTimeout(() => {
+          const el = document.getElementById(link.id);
+          if (el) {
+            const headerOffset = 90;
+            const targetPos = el.getBoundingClientRect().top + window.pageYOffset - headerOffset;
+            smoothScrollTo(targetPos, SCROLL_DURATION);
+          }
+        }, 80);
+      } else {
+        const el = document.getElementById(link.id);
+        if (el) {
+          const headerOffset = 90;
+          const targetPos = el.getBoundingClientRect().top + window.pageYOffset - headerOffset;
+          smoothScrollTo(targetPos, SCROLL_DURATION);
+        }
       }
     }
   };
@@ -113,4 +122,6 @@ export function Navbar() {
       </div>
     </header>
   );
-} 
+}
+
+export default Navbar;

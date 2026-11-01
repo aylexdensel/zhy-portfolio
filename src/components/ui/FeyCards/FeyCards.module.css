@@ -1,0 +1,178 @@
+.container {
+  position: relative;
+  width: 100%;
+  min-height: 580px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: radial-gradient(circle at 50% 50%, rgba(14, 18, 29, 0.95) 0%, rgba(8, 12, 20, 1) 100%);
+  border-radius: var(--radius-xl);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: var(--space-32) var(--space-16);
+}
+
+.stage {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 900px;
+}
+
+/* Background Dynamic Shimmer Typography (+20% Font Scale) */
+.headline {
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+  margin: 0 auto;
+  width: max-content;
+  text-align: center;
+  font-size: clamp(1.45rem, 4vw, 2.85rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  white-space: nowrap;
+  pointer-events: none;
+  transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  padding: var(--space-12) var(--space-24);
+}
+
+.solidTitle {
+  color: transparent;
+  background: linear-gradient(
+    to right,
+    #ffffff 0%,
+    rgba(255, 255, 255, 0) 30%,
+    rgba(255, 255, 255, 0) 60%,
+    rgba(255, 255, 255, 0.25) 80%,
+    #ffffff 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  opacity: 0;
+}
+
+.gradientTitle {
+  color: #ffffff;
+  opacity: 1;
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.9);
+}
+
+.titleVisible {
+  opacity: 1 !important;
+}
+
+.titleHidden {
+  opacity: 0 !important;
+}
+
+/* Card Deck Stage (+20% Scale: 408px Width × 480px Height) */
+.deckWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 480px;
+  width: 408px;
+  margin-top: var(--space-48);
+  -webkit-mask-image: linear-gradient(to bottom, #000 80%, transparent 100%);
+  mask-image: linear-gradient(to bottom, #000 80%, transparent 100%);
+}
+
+.mainCard {
+  position: absolute;
+  inset-block: 0;
+  left: 0;
+  height: 100%;
+  width: 168px;
+  object-fit: contain;
+  z-index: 10;
+  filter: drop-shadow(0 18px 36px rgba(0, 0, 0, 0.85));
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+.cardSlot {
+  position: absolute;
+  bottom: -8px;
+  height: 100%;
+  width: 168px;
+  cursor: pointer;
+  transform: translateZ(0);
+}
+
+.cardInner {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  will-change: transform;
+  transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.cardImage {
+  position: absolute;
+  inset: 0;
+  height: 100%;
+  width: 100%;
+  object-fit: contain;
+  aspect-ratio: 9 / 16;
+  user-select: none;
+  -webkit-user-drag: none;
+  filter: drop-shadow(0 12px 30px rgba(0, 0, 0, 0.75));
+  transition: opacity 0.4s ease;
+}
+
+.activeImage {
+  opacity: 0;
+  z-index: 2;
+}
+
+.idleImage {
+  opacity: 1;
+  z-index: 1;
+}
+
+.cardSlot:hover .activeImage,
+.forceActive {
+  opacity: 1 !important;
+}
+
+.cardSlot:hover .idleImage,
+.forceIdleHidden {
+  opacity: 0 !important;
+}
+
+.edgeBlurShadow {
+  position: absolute;
+  top: 38px;
+  left: 10px;
+  z-index: 50;
+  height: 80%;
+  width: 20px;
+  background: #000000;
+  filter: blur(14px);
+  pointer-events: none;
+}
+
+.lastCard {
+  transition: opacity 0.3s ease;
+}
+
+@media (max-width: 640px) {
+  .container {
+    min-height: 480px;
+    padding: var(--space-20) var(--space-8);
+  }
+
+  .deckWrapper {
+    transform: scale(0.85);
+  }
+
+  .headline {
+    font-size: 1.3rem;
+  }
+}

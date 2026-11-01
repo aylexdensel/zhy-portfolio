@@ -1,40 +1,41 @@
 // -------------------------------------------------------------
-// ⚙️ CINEMATIC SLOW SCROLL DURATION (in milliseconds)
-// 1800 = 1.8 seconds (Ultra-smooth, slow cinematic glide)
+// ⚙️ CINEMATIC SMOOTH SCROLL ENGINE
 // -------------------------------------------------------------
-export const SCROLL_DURATION = 1800;
+export const SCROLL_DURATION = 1400;
+
+let activeScrollRaf = null;
 
 export function smoothScrollTo(targetPosition, duration = SCROLL_DURATION) {
+  // 1. Instantly cancel any currently running scroll animation to prevent fighting
+  if (activeScrollRaf) {
+    cancelAnimationFrame(activeScrollRaf);
+    activeScrollRaf = null;
+  }
+
   const startPosition = window.pageYOffset || document.documentElement.scrollTop;
   const distance = targetPosition - startPosition;
 
-  // Don't scroll if already at target
-  if (Math.abs(distance) < 5) return;
+  // Don't scroll if already at target position
+  if (Math.abs(distance) < 2) return;
 
   let startTime = null;
-
-  // Bypasses browser CSS scroll-behavior queueing for 0ms instant response
-  const html = document.documentElement;
-  const originalScrollBehavior = html.style.scrollBehavior;
-  html.style.scrollBehavior = 'auto';
 
   function animation(currentTime) {
     if (startTime === null) startTime = currentTime;
     const timeElapsed = currentTime - startTime;
     const progress = Math.min(timeElapsed / duration, 1);
 
-    // Quintic Ease-Out: Starts instantly, then coast-glides into a feather-soft stop
+    // Quintic Ease-Out: Instant start, fluid glide, feather-soft stop
     const easeOutQuint = 1 - Math.pow(1 - progress, 5);
 
     window.scrollTo(0, startPosition + distance * easeOutQuint);
 
     if (timeElapsed < duration) {
-      requestAnimationFrame(animation);
+      activeScrollRaf = requestAnimationFrame(animation);
     } else {
-      // Restore original CSS scroll behavior when finished
-      html.style.scrollBehavior = originalScrollBehavior;
+      activeScrollRaf = null;
     }
   }
 
-  requestAnimationFrame(animation);
+  activeScrollRaf = requestAnimationFrame(animation);
 }

@@ -3,7 +3,7 @@ import styles from './Reveal.module.css';
 
 export function Reveal({ 
   children, 
-  direction = 'up', // 'up' | 'left' | 'fade'
+  direction = 'up', // 'up' | 'down' | 'left' | 'right' | 'fade'
   delay = 0,        // delay in ms
   className = '',
   width = '100%' 
@@ -14,11 +14,11 @@ export function Reveal({
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
-        // Continuous triggering: sets visible true when in view, false when out
+        // Continuous triggering: true when in viewport, false when out
         setIsVisible(entry.isIntersecting);
       },
       {
-        threshold: 0.12, // Triggers when 12% of element is in viewport
+        threshold: 0.12,
         rootMargin: '0px 0px -40px 0px'
       }
     );
@@ -49,3 +49,5 @@ export function Reveal({
     </div>
   );
 }
+
+export default Reveal;

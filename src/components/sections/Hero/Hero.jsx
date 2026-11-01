@@ -1,12 +1,10 @@
 import React from 'react';
 import { Reveal } from '../../ui/Reveal/Reveal';
 import { CardSwap, Card, TerminalCard } from './CardSwap/CardSwap';
+import { DepthText } from '../../ui/DepthText/DepthText';
+import { Shuffle } from '../../ui/Shuffle/Shuffle';
+import { TextType } from '../../ui/TextType/TextType';
 import styles from './Hero.module.css';
-
-import designIcon from '../../../assets/icons/design.svg';
-import fullstackIcon from '../../../assets/icons/fullstack.svg';
-import lightbulbIcon from '../../../assets/icons/lightbulb.svg';
-import rocketIcon from '../../../assets/icons/rocket.svg';
 
 const STRENGTH_ICONS = {
   synergy: (
@@ -55,7 +53,6 @@ const HERO_STRENGTHS = [
   }
 ];
 
-// 6 Small Skill Cards
 const QUICK_SKILLS = [
   {
     title: 'Web Dev',
@@ -111,9 +108,9 @@ export function Hero() {
   return (
     <section className={styles.heroSection} aria-label="Introduction">
       <div className={`container ${styles.heroContainer}`}>
-        {/* Top Hero Grid */}
         <div className={styles.heroGrid}>
           <div className={styles.heroContent}>
+            {/* Status Badge */}
             <Reveal direction="left" delay={100}>
               <div className={styles.badge}>
                 <span className={styles.badgeDot} />
@@ -121,24 +118,56 @@ export function Hero() {
               </div>
             </Reveal>
 
+            {/* ZHY 3D Depth Title, Full Name, & 2D Pixel Shuffle Role */}
             <Reveal direction="left" delay={200}>
               <div className={styles.nameTitle}>
-                <h1 className={styles.brandName}>ZHY</h1>
+                <div className={styles.depthNameWrapper}>
+                  <DepthText
+                    text="ZHY"
+                    layers={32}
+                    depth={2.2}
+                    faceColor="#00e5ff"
+                    depthColor="#a855f7"
+                    tilt={7.5}
+                    fontSize="clamp(3.4rem, 7.5vw, 5.8rem)"
+                    fontWeight={900}
+                    autoOrbit={true}
+                    orbitSpeed={0.35}
+                  />
+                </div>
+
                 <p className={styles.fullName}>Ailex Denzel Estrada</p>
-                <p className={styles.professionalRole}>
-                  Frontend Developer & Web Developer & UI/UX Designer
-                </p>
+
+                <Shuffle
+                  text="Frontend Developer & Web Developer & UI/UX Designer"
+                  className={styles.professionalRole}
+                  shuffleDirection="right"
+                  duration={0.35}
+                  shuffleTimes={1}
+                  animationMode="evenodd"
+                  stagger={0.03}
+                  loop={false}
+                  triggerOnHover={true}
+                  textAlign="left"
+                />
               </div>
             </Reveal>
 
+            {/* Typewriter Hero Description */}
             <Reveal direction="left" delay={300}>
-              <p className={styles.heroDescription}>
-                Turning messy ideas into reliable, interactive web solutions.<br />
-                I am a freshly graduated aspiring Frontend Developer and Web Developer based in Manila. I don't just build websites; I engineer complete experiences, blending thoughtful interface design with full-stack technologies to create software that is both visually engaging and highly performant.
-              </p>
+              <TextType
+                text="Turning messy ideas into reliable, interactive web solutions. I am a freshly graduated aspiring Frontend Developer and Web Developer based in Manila. I don't just build websites; I engineer complete experiences, blending thoughtful interface design with full-stack technologies to create software that is both visually engaging and highly performant."
+                typingSpeed={18}
+                initialDelay={400}
+                loop={false}
+                showCursor={true}
+                cursorCharacter="▍"
+                className={styles.heroDescription}
+              />
             </Reveal>
 
-            <Reveal direction="left" delay={350}>
+            {/* Location Badge */}
+            <Reveal direction="right" delay={350}>
               <div className={styles.locationBadge}>
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className={styles.neonPinkIconLocation}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
@@ -148,7 +177,8 @@ export function Hero() {
               </div>
             </Reveal>
 
-            <Reveal direction="left" delay={400}>
+            {/* Action Buttons */}
+            <Reveal direction="right" delay={400}>
               <div className={styles.actionsGroup}>
                 <a href="#projects" className={styles.gradientBtn}>
                   View My Work →
@@ -160,9 +190,9 @@ export function Hero() {
             </Reveal>
           </div>
 
-          {/* Right Side 3D GSAP Card Swap Terminal Deck (skewAmount={6} 3D design) */}
+          {/* Right Side 3D GSAP Card Swap Terminal Deck */}
           <div className={styles.cardSwapArea}>
-            <Reveal direction="fade" delay={300}>
+            <Reveal direction="right" delay={300}>
               <CardSwap
                 cardDistance={50}
                 verticalDistance={60}
@@ -191,9 +221,10 @@ export function Hero() {
           <Reveal direction="left" delay={100}>
             <h2 className={styles.strengthsHeading}>Core Strengths</h2>
           </Reveal>
+          
           <div className={styles.strengthsGrid}>
             {HERO_STRENGTHS.map((item, index) => (
-              <Reveal key={index} direction="left" delay={150 + index * 100}>
+              <Reveal key={index} direction="up" delay={150 + index * 100}>
                 <div className={styles.strengthCard}>
                   <div className={styles.strengthIcon}>
                     {item.icon}
@@ -205,8 +236,8 @@ export function Hero() {
             ))}
           </div>
 
-          {/* 6 Small Skill Cards Row */}
-          <Reveal direction="left" delay={200}>
+          {/* 6 Small Skill Cards Row - Preserved in Single <Reveal> Wrapper */}
+          <Reveal direction="up" delay={250}>
             <div className={styles.quickSkillsRow}>
               {QUICK_SKILLS.map((skill, index) => (
                 <div key={index} className={styles.quickSkillCard}>
@@ -221,3 +252,5 @@ export function Hero() {
     </section>
   );
 }
+
+export default Hero;

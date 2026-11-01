@@ -1,6 +1,7 @@
 import React from 'react';
-import { SectionHeading } from '../../ui/SectionHeading/SectionHeading';
 import { Reveal } from '../../ui/Reveal/Reveal';
+import { Shuffle } from '../../ui/Shuffle/Shuffle';
+import { TextType } from '../../ui/TextType/TextType';
 import { AccordionGallery } from '../../projects/AccordionGallery/AccordionGallery';
 import styles from './Projects.module.css';
 
@@ -39,14 +40,39 @@ export function Projects() {
   return (
     <section id="projects" className={styles.projectsSection} aria-label="Featured Projects">
       <div className="container">
+        
+        {/* Section Header with Pixel Shuffle Title & Typewriter Subtitle */}
         <Reveal direction="left" delay={100}>
-          <SectionHeading
-            number="03 / PROJECTS"
-            title="Featured Work & Full-Stack Case Studies"
-            subtitle="Substantial applications designed and built independently. Hover over any project panel below to inspect details and live demo options."
-          />
+          <div className={styles.headingWrapper}>
+            <span className={styles.numberTag}>03 / PROJECTS</span>
+
+            <h2 className={styles.title}>
+              <Shuffle
+                text="Featured Work & Full-Stack Case Studies"
+                className={styles.projectsShuffleTitle}
+                shuffleDirection="right"
+                duration={0.35}
+                stagger={0.02}
+                animationMode="evenodd"
+                loop={false}
+                triggerOnHover={true}
+                textAlign="left"
+              />
+            </h2>
+
+            <TextType
+              text="Substantial applications designed and built independently. Hover over any project panel below to inspect details and live demo options."
+              typingSpeed={16}
+              initialDelay={300}
+              loop={false}
+              showCursor={true}
+              cursorCharacter="▍"
+              className={styles.subtitle}
+            />
+          </div>
         </Reveal>
 
+        {/* GSAP 3D Accordion Gallery */}
         <div className={styles.projectsContainer}>
           <Reveal direction="up" delay={200}>
             <AccordionGallery 
@@ -60,3 +86,5 @@ export function Projects() {
     </section>
   );
 }
+
+export default Projects;

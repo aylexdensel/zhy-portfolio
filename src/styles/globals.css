@@ -10,13 +10,12 @@
 
 html {
   color-scheme: dark light;
-  scroll-behavior: smooth;
   -webkit-text-size-adjust: 100%;
 }
 
 /* Base color on body — CSS blend modes composite against this */
 body {
-  background-color: #170c29;
+  background-color: #000000;
   color: var(--text-primary);
   font-family: var(--font-family);
   line-height: 1.6;

@@ -1,10 +1,55 @@
 .contactSection {
+  position: relative;
+  overflow: hidden;
   padding: var(--space-96) 0;
   border-top: 1px solid var(--border);
 }
 
+.headingWrapper {
+  position: relative;
+  z-index: 1;
+  margin-bottom: var(--space-48);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-12);
+}
+
+.numberTag {
+  font-family: var(--font-mono);
+  font-size: 0.875rem;
+  color: var(--accent);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.title {
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+}
+
+/* 2D Pixel Font Section Title */
+.contactShuffleTitle {
+  font-family: 'Press Start 2P', monospace, sans-serif !important;
+  font-size: clamp(1rem, 2.2vw, 1.75rem) !important;
+  line-height: 1.6 !important;
+  color: #ffffff !important;
+  letter-spacing: 0.04em !important;
+  text-shadow: 0 0 12px rgba(255, 255, 255, 0.4);
+}
+
+.subtitle {
+  color: var(--text-secondary);
+  font-size: 1.1rem;
+  max-width: 75ch;
+  min-height: 56px;
+  line-height: 1.6;
+}
+
 /* 3-Column Grid Layout for Desktop */
 .contactGrid {
+  position: relative;
+  z-index: 1;
   display: grid;
   grid-template-columns: 1fr;
   gap: var(--space-32);
@@ -42,7 +87,6 @@
   width: 100%;
 }
 
-/* Glassmorphism Education Cards matching soft purple glass theme */
 .degreeCard,
 .selfLearningCard {
   background: linear-gradient(
@@ -169,7 +213,7 @@
   transition: fill 0.2s ease-in-out;
 }
 
-/* Card 1: LinkedIn (Top-Left) */
+/* Card 1: LinkedIn (Top-Left) - Preserved Radial Offset */
 .card1 {
   width: 160px;
   height: 160px;
@@ -202,7 +246,7 @@
   fill: white;
 }
 
-/* Card 2: GitHub (Top-Right) */
+/* Card 2: GitHub (Top-Right) - Preserved Radial Offset */
 .card2 {
   width: 160px;
   height: 160px;
@@ -235,7 +279,7 @@
   fill: white;
 }
 
-/* Card 3: Facebook (Bottom-Left) */
+/* Card 3: Facebook (Bottom-Left) - Preserved Radial Offset */
 .card3 {
   width: 160px;
   height: 160px;
@@ -268,7 +312,7 @@
   fill: white;
 }
 
-/* Card 4: Gmail (Bottom-Right) */
+/* Card 4: Gmail (Bottom-Right) - Preserved Radial Offset */
 .card4 {
   width: 160px;
   height: 160px;

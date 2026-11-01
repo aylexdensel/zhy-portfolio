@@ -11,8 +11,10 @@
   }
 }
 
-/* Opaque #080c14 Vertical Cards */
+/* Opaque #080c14 Vertical Cards with Dotted Glow Canvas */
 .button-card-column {
+  position: relative;
+  overflow: hidden;
   background-color: #080c14;
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 20px;
@@ -34,6 +36,8 @@
 }
 
 .button-card-header {
+  position: relative;
+  z-index: 1;
   width: 100%;
   text-align: left;
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
@@ -57,6 +61,7 @@
    ============================================================ */
 .uiverse-btn-1 {
   position: relative;
+  z-index: 1;
   width: 130px;
   height: 42px;
   background-color: #000000;
@@ -117,6 +122,7 @@
    ============================================================ */
 .uiverse-btn-2 {
   position: relative;
+  z-index: 1;
   display: flex;
   align-items: center;
   gap: 4px;
@@ -190,6 +196,8 @@
    BUTTON 3: Pink Border Fill Slide
    ============================================================ */
 .uiverse-btn-3 {
+  position: relative;
+  z-index: 1;
   font-size: 15px;
   letter-spacing: 2px;
   text-transform: uppercase;
@@ -199,12 +207,10 @@
   padding: 0.7em 2em;
   border: 3px solid #FF0072;
   border-radius: 4px;
-  position: relative;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.1);
   color: #FF0072;
   text-decoration: none;
   transition: 0.3s ease all;
-  z-index: 1;
   cursor: pointer;
   background: transparent;
 }
@@ -243,6 +249,8 @@
    BUTTON 4: Neon Reflect Watch Button
    ============================================================ */
 .uiverse-btn-4 {
+  position: relative;
+  z-index: 1;
   font-size: 1rem;
   padding: 0.875rem 2.2rem;
   border: none;
@@ -272,6 +280,7 @@
    ============================================================ */
 .uiverse-btn-5 {
   position: relative;
+  z-index: 1;
   display: flex;
   overflow: hidden;
   cursor: pointer;
@@ -340,6 +349,8 @@
    BUTTON 6: 3D Stacked Shadow
    ============================================================ */
 .uiverse-btn-6 {
+  position: relative;
+  z-index: 1;
   width: 130px;
   height: 42px;
   font-size: 1rem;
@@ -375,6 +386,7 @@
    ============================================================ */
 .uiverse-btn-7 {
   position: relative;
+  z-index: 1;
   background-color: transparent;
   color: #e8e8e8;
   font-size: 15px;
@@ -437,6 +449,7 @@
    ============================================================ */
 .uiverse-btn-8 {
   position: relative;
+  z-index: 1;
   font-size: 1rem;
   font-weight: 700;
   padding: 0.7em 1.6em;
@@ -477,6 +490,7 @@
    ============================================================ */
 .uiverse-social-container {
   position: relative;
+  z-index: 1;
   perspective: 1000px;
 }
 
